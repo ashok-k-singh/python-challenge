@@ -19,7 +19,6 @@ def print_analysis(mylist, mymonths):
     count = 0  
     
     total_months = len(mylist)
-    print(f"Total Months: {total_months}")
 
     for myprofit in mylist:
         total_profit += int(myprofit)
@@ -44,6 +43,7 @@ def print_analysis(mylist, mymonths):
     # Print the output to the terminal
     print("\n")
     print("******************************************************")
+    print(f"Total Months: {total_months}")
     print("Financial Analysis of PyBank")
     print(f"Total Profit/Losses over the entire period: ${total_profit}")
     print(f"Average Changes in Profit/Losses over the entire period: ${average_change_in_profit}")  
@@ -54,6 +54,7 @@ def print_analysis(mylist, mymonths):
     # Opne the output file and write the output to the file
     with open(output_file, "w") as my_output_file:
         my_output_file.write("\n ******************************************************")
+        my_output_file.write(f"\n Total Months: {total_months}")        
         my_output_file.write("\n Financial Analysis of PyBank")
         my_output_file.write(f"\n Total Profit/Losses over the entire period: ${total_profit}")
         my_output_file.write(f"\n Average Changes in Profit/Losses over the entire period: ${average_change_in_profit}")  
@@ -66,7 +67,6 @@ def print_analysis(mylist, mymonths):
 # Initialize the variables
 profit = []
 months = []
-row_count = 0
 
 #open the data file and read using csv reader
 with open(file_to_load, newline="") as csv_file:
@@ -76,7 +76,6 @@ with open(file_to_load, newline="") as csv_file:
     for row in csv_reader:
         months.append(row[0])
         profit.append(row[1])
-        row_count += 1
 
     # Call the Print Analysis Function    
     print_analysis(profit, months)
